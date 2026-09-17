@@ -26,6 +26,11 @@
             gofumpt
             gopls
             delve
+
+            vscode-langservers-extracted
+            prettierd
+            gnumake
+            mbake
           ];
         };
     };
