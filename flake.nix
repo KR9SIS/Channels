@@ -27,10 +27,15 @@
             gopls
             delve
 
-            vscode-langservers-extracted
-            prettierd
             gnumake
             mbake
+
+            typescript-language-server
+            vscode-langservers-extracted
+            vue-language-server
+            prettierd
+            nodejs
+            pnpm
           ];
         };
     };
