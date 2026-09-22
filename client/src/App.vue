@@ -1,11 +1,24 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const hangUpCall = () => {
+  // Close call and send signalling server notification
+  // to other peer, requesting it also closes their connection
+  console.error('implement')
+}
+const elem = document.getElementById('hangup-button')
+if (elem != null) {
+  elem.addEventListener('click', hangUpCall)
+}
+console.log(elem)
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <div class="flexChild" id="camera-container">
+    <div class="camera-box">
+      <video id="received_video" autoplay></video>
+      <video id="local_video" autoplay muted></video>
+      <button id="hangup-button" disabled>Hang Up</button>
+    </div>
+  </div>
 </template>
 
 <style scoped></style>

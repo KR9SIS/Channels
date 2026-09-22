@@ -1,50 +1,15 @@
-# Channels
+# client
 
-This template should help get you started developing with Vue 3 in Vite.
+## WebRPC Steps
 
-## Recommended IDE Setup
+### STUN Setup
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+When a peer wants to set up a connection they reach out to the STUN server to acquire their own public IP address.
 
-This project replaces its workspace TypeScript package with [typescript-native-bridge](https://github.com/johnsoncodehk/typescript-native-bridge). Command-line tools use the bridge automatically. To use it in VS Code after installing dependencies, accept the prompt to use the workspace TypeScript version. If the prompt does not appear, run **TypeScript: Select TypeScript Version** and choose **Use Workspace Version**.
+### Signalling Server
 
-## Recommended Browser Setup
+Before clients can communicate with each other they need to connect to a shared signalling server. They connect to the signalling server with their own Public IP address, port and SDP info. The signalling server then broadcasts this information to all other clients it knows about.
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+### P2P through ICE
 
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-pnpm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-pnpm dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-pnpm build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-pnpm lint
-```
+After clients learn about each others existence and public ip addresses they use ICE to connect to each other. They go through each ICE connection candidate and then start streaming data between them as soon as a possible candidate is found. However they continue exchanging all possible candidates even after data has started to stream in hopes of finding the best one and keeping all other possible candidates in mind if the network situation changes.
