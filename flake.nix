@@ -29,6 +29,7 @@
 
             gnumake
             mbake
+            openssl
 
             typescript-language-server
             vscode-langservers-extracted
