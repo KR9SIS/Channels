@@ -27,6 +27,12 @@
             gopls
             delve
 
+            # INFO: Wails
+            webkitgtk_6_0
+            gtk4
+            pkg-config
+            gcc
+
             gnumake
             mbake
             openssl
@@ -38,6 +44,11 @@
             nodejs
             pnpm
           ];
+          shellHook = ''
+            export CGO_CFLAGS="-U_FORTIFY_SOURCE"
+            export CGO_CXXFLAGS="-U_FORTIFY_SOURCE"
+            export PATH=$PATH:~/go/bin
+          '';
         };
     };
 }
