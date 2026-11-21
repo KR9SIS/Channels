@@ -30,14 +30,20 @@ go.work.sum
 # env file
 .env
 
-# cert material — never commit
-*.key
-*.crt
-*.srl
-
 # Editor/IDE
 # .idea/
 # .vscode/
 
-# Compiled binaries
-raftserver/raftserver
+# Wails3 ignores
+.task
+bin
+frontend/dist
+frontend/node_modules
+build/linux/*.desktop
+build/linux/appimage/build
+build/windows/nsis/MicrosoftEdgeWebview2Setup.exe
+# Mobile generated (per-machine; overlays hold absolute paths)
+build/ios/xcode/overlay.json
+build/ios/xcode/gen/
+build/android/overlay.json
+build/android/gen/
