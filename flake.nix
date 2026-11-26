@@ -26,11 +26,19 @@
             gofumpt
             gopls
             delve
+            govulncheck
 
             # INFO: Wails
             webkitgtk_6_0
             gtk4
             mesa
+            pkg-config
+            x264
+            gst_all_1.gstreamer # coreelements
+            gst_all_1.gst-plugins-base # appsink
+            gst_all_1.gst-plugins-good # v4l2src, pulsesrc
+            gst_all_1.gst-plugins-bad # WebVTT
+            pipewire
 
             typescript-language-server
             vscode-langservers-extracted
@@ -45,6 +53,9 @@
             export PATH=$PATH:~/go/bin
 
             export __EGL_VENDOR_LIBRARY_FILENAMES="${pkgs.mesa}/share/glvnd/egl_vendor.d/50_mesa.json"
+
+            # Workaround for bug in webkit where app video doesn't rerender with v-if
+            export WEBKIT_GST_ALLOW_PLAYBACK_OF_INVISIBLE_VIDEOS=1
           '';
         };
     };
