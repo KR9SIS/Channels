@@ -1,19 +1,16 @@
 <script setup lang="ts">
-// import Conference from "./components/VideoConference.vue";
-
-import HelloWorld from "./components/HelloWorld.vue";
+import Conference from "./components/VideoConference.vue";
 </script>
 
 <template>
-    <!-- <div class="app">
-    <header class="top-bar">top</header>
-    <main class="conference">
-      <Conference />
-    </main>
-    <footer class="bottom-bar">bottom</footer>
-    <div class="controls-overlay">controls</div>
-  </div> -->
-    <HelloWorld />
+    <div class="app">
+        <header class="top-bar">top</header>
+        <main class="conference">
+            <Conference />
+        </main>
+        <footer class="bottom-bar">bottom</footer>
+        <div class="controls-overlay">controls</div>
+    </div>
 </template>
 
 <style scoped>
