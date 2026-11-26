@@ -34,7 +34,7 @@ func main() {
 	// 'Mac' options tailor the application when running an macOS.
 	app := application.New(application.Options{
 		Name:        "Channels",
-		Description: "A demo of using raw HTML & CSS",
+		Description: "Video Conference application using a P2P network connections built with Go, Tailscale and Wails3 for the backend and Vue 3 in Typescript for the frontend.",
 		Services: []application.Service{
 			application.NewService(&TailscaleService{}),
 		},
@@ -52,7 +52,7 @@ func main() {
 	// 'BackgroundColour' is the background colour of the window.
 	// 'URL' is the URL that will be loaded into the webview.
 	app.Window.NewWithOptions(application.WebviewWindowOptions{
-		Title: "Window 1",
+		Title: "Channels",
 		// Window sized to the golden ratio (1000 / 618 ≈ 1.618).
 		Width:  1000,
 		Height: 618,
